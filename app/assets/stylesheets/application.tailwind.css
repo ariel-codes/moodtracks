@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+  .card {
+    @apply p-4 shadow bg-white rounded-lg bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 border border-gray-200;
   }
 }
-
-*/
