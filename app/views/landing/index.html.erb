@@ -4,5 +4,6 @@
     <p>Now you can express your feelings using your favorite songs: search for your
       current earworm and MoodTracks will calculate its mood for you.</p>
   </div>
-  <%= link_to "Log in using your Spotify account", "", class: "text-white font-bold uppercase px-4 py-2 bg-brand-700 rounded-full shadow-md" %>
+  <%= link_to 'Sign in with Spotify', '/auth/spotify', method: :post,
+    class: "text-white font-bold uppercase px-4 py-2 bg-brand-700 rounded-full shadow-md text-center" %>
 </div>
