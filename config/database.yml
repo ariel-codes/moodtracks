@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: moodtracks_production
-  username: moodtracks
-  password: <%= ENV["MOODTRACKS_DATABASE_PASSWORD"] %>
+  url: <%= ENV["MOODTRACKS_DATABASE_URL"] %>

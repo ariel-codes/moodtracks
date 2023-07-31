@@ -1,10 +1,6 @@
 require "test_helper"
 
 class SessionControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    OmniAuth.config.test_mode = true
-  end
-
   test "should create a new User" do
     OmniAuth.config.add_mock(:spotify, {
       provider: "spotify",

@@ -2,8 +2,7 @@ class SessionController < ApplicationController
   include Authenticatable
 
   def spotify
-    spotify_user = RSpotify::User.new(request.env["omniauth.auth"])
-    result = SpotifyAuth.new.signin_or_signup_user(spotify_user)
+    result = SpotifyAuth.new.signin_or_signup_user(request.env["omniauth.auth"])
     set_user_session(result.user)
     redirect_to home_path
   end

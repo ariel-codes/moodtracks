@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_07_25_045846) do
+ActiveRecord::Schema[7.1].define(version: 2023_07_31_011358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_07_25_045846) do
     t.index ["user_id"], name: "index_credentials_on_user_id", unique: true
   end
 
+  create_table "playlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "spotify_id"
+    t.string "feature"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spotify_id"], name: "index_playlists_on_spotify_id", unique: true
+    t.index ["user_id", "feature"], name: "index_playlists_on_user_id_and_feature", unique: true
+    t.index ["user_id"], name: "index_playlists_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "spotify_id", null: false
     t.string "name", null: false
@@ -37,4 +48,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_07_25_045846) do
   end
 
   add_foreign_key "credentials", "users"
+  add_foreign_key "playlists", "users"
 end
