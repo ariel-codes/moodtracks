@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resource :home, only: :show
+
   get "/auth/spotify/callback", to: "session#spotify", as: :auth_callback
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

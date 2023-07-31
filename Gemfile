@@ -32,6 +32,8 @@ gem "jbuilder"
 # A ruby wrapper for the Spotify Web API
 gem "rspotify", "~> 2.11"
 
+gem "phlex-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

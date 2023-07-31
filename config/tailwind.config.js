@@ -1,7 +1,13 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+// const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    content: ['./public/*.html', './app/helpers/**/*.rb', './app/javascript/**/*.js', './app/views/**/*.{erb,haml,html,slim}'],
+    content: [
+        './app/views/**/*.rb',
+        './app/components/**/*.rb',
+        './public/*.html',
+        './app/helpers/**/*.rb',
+        './app/javascript/**/*.js',
+    ],
     theme: {
         extend: {
             colors: {
@@ -19,9 +25,14 @@ module.exports = {
                     '950': '#0c2b08',
                 }
             }, fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                sans: ['Rubik', 'sans-serif'],
             },
         },
     },
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/typography'), require('@tailwindcss/container-queries'),]
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/container-queries'),
+    ],
 }
