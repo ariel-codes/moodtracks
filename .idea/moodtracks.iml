@@ -418,6 +418,28 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="inline_svg (v1.9.0) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/.github" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/.github" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.2.0/gems/inline_svg-1.9.0/.github" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="irb (v1.7.4) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

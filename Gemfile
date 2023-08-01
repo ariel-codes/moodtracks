@@ -32,7 +32,11 @@ gem "jbuilder"
 # A ruby wrapper for the Spotify Web API
 gem "rspotify", "~> 2.11"
 
+# An object-oriented alternative to ActionView for Ruby on Rails
 gem "phlex-rails"
+
+# Embed SVG documents in your Rails views and style them with CSS
+gem "inline_svg", "~> 1.9"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
