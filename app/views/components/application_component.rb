@@ -5,7 +5,7 @@ class ApplicationComponent < Phlex::HTML
   include Phlex::Rails::Helpers::LinkTo
   include Phlex::Rails::Helpers::ButtonTo
   include Phlex::Rails::Helpers::ImageTag
-  include InlineSvg::ActionView::Helpers
+  include InlineSvgTagHelper
 
   if Rails.env.development?
     def before_template

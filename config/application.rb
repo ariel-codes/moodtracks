@@ -27,6 +27,7 @@ module Moodtracks
     config.autoload_paths << "#{root}/app/views"
     config.autoload_paths << "#{root}/app/views/layouts"
     config.autoload_paths << "#{root}/app/views/components"
+    config.autoload_paths << "#{root}/app/views/helpers"
 
     # Configuration for the application, engines, and railties goes here.
     #
