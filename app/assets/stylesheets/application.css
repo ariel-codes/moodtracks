@@ -53,3 +53,8 @@ body {
     font-optical-sizing: auto;
     font-synthesis: small-caps weight;
 }
+
+dialog:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+}

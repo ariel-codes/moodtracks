@@ -5,8 +5,10 @@ class ApplicationComponent < Phlex::HTML
   include Phlex::Rails::Helpers::LinkTo
   include Phlex::Rails::Helpers::LinkToUnlessCurrent
   include Phlex::Rails::Helpers::ButtonTo
+  include Phlex::Rails::Helpers::FormWith
   include Phlex::Rails::Helpers::ImageTag
   include Phlex::Rails::Helpers::TimeAgoInWords
+  include Phlex::Rails::Helpers::TurboFrameTag
   include InlineSvgTagHelper
 
   if Rails.env.development?

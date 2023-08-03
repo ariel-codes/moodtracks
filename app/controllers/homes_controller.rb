@@ -2,6 +2,6 @@
 
 class HomesController < AuthenticatedController
   def show
-    render Home::ShowView.new
+    render Home::ShowView.new(current_user.user_tracks.includes(:track))
   end
 end

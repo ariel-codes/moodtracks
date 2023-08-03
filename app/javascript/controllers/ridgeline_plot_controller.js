@@ -6,7 +6,12 @@ import p5 from "p5"
 // Connects to data-controller="ridgeline-plot"
 export default class extends Controller {
     config = {
-        count: 60, separation: 18, width: window.innerWidth, speed: 0.0025, arity: 0.04
+        frameRate: 60,
+        count: 60,
+        separation: 18,
+        width: window.innerWidth,
+        speed: 0.0025,
+        arity: 0.04
     }
     lines = [];
     time = 0;
@@ -30,7 +35,7 @@ export default class extends Controller {
 
     setupCanvas = () => {
         this.sketch.createCanvas(window.innerWidth, window.innerHeight, this.element)
-        this.sketch.frameRate(120)
+        this.sketch.frameRate(this.config.frameRate)
 
         for (let i = 0; i < this.config.count; i++) {
             const baseline = i * this.config.separation

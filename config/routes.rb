@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resource :home, only: :show
   resource :profile, only: [:show, :destroy]
+  resource :tracks, only: [:create] do
+    put :search
+  end
 
   get "/auth/spotify/callback", to: "session#create"
   delete "/logout", to: "session#destroy"
