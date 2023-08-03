@@ -4,8 +4,8 @@ class PublicLayout < AbstractLayout
     html(lang: "en") do
       headers
       body(class: "flex h-screen w-screen bg-neutral-950 px-2 pt-1") do
-        div data_controller: "ridgeline-plot",
-          class: "absolute top-0 left-0 w-full h-full bg-brand-950/5 -z-5 bg-clip-padding backdrop-filter backdrop-blur-[1px]"
+        canvas data_controller: "ridgeline-plot", data_turbo_permanent: true, id: "ridgeline-plot",
+          class: "absolute top-0 left-0 w-full h-full bg-black blur-[1px] -z-50"
         div(class: "mx-auto max-w-3xl flex-grow flex flex-col") do
           app_header
           main(class: "flex-grow flex flex-col", &content)

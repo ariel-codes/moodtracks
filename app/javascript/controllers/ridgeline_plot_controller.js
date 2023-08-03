@@ -1,7 +1,7 @@
 import {Controller} from "@hotwired/stimulus"
 import p5 from "p5"
 
-// Many thanks to https://maxhalford.github.io/blog/unknown-pleasures/
+// Many thanks to https://maxhalford.github.io/blog/unknown-pleasures/ and https://github.com/robertobetini/unknownpleasures
 // for the inspiration
 // Connects to data-controller="ridgeline-plot"
 export default class extends Controller {
@@ -11,7 +11,7 @@ export default class extends Controller {
     lines = [];
     time = 0;
 
-    connect() {
+    initialize() {
         this.timeStamp = Date.now()
         new p5(this.plotter)
     }
@@ -29,10 +29,8 @@ export default class extends Controller {
     }
 
     setupCanvas = () => {
-        this.canvas = this.sketch.createCanvas(window.innerWidth, window.innerHeight)
-        this.canvas.position(0, 0)
-        this.canvas.style('z-index', '-10')
-        this.sketch.background(0)
+        this.sketch.createCanvas(window.innerWidth, window.innerHeight, this.element)
+        this.sketch.frameRate(120)
 
         for (let i = 0; i < this.config.count; i++) {
             const baseline = i * this.config.separation

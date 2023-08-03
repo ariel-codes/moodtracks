@@ -1,5 +1,6 @@
 class AbstractLayout < ApplicationView
   include Phlex::Rails::Layout
+  register_element :canvas
 
   private
 
@@ -39,7 +40,6 @@ class AbstractLayout < ApplicationView
     stylesheet_link_tag "https://fonts.googleapis.com", rel: "preconnect"
     stylesheet_link_tag "https://fonts.gstatic.com", rel: "preconnect", crossorigin: true
     stylesheet_link_tag "https://fonts.googleapis.com/css?family=Audiowide&text=MoodTracks"
-    stylesheet_link_tag "https://fonts.googleapis.com/css?family=Michroma"
   end
 
   def webmanifest
