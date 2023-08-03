@@ -2,6 +2,6 @@
 
 class HomesController < AuthenticatedController
   def show
-    render Home::ShowView
+    render Home::ShowView.new
   end
 end

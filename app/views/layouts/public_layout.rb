@@ -17,8 +17,16 @@ class PublicLayout < AbstractLayout
   private
 
   def app_header
-    header(class: "glassy rounded p-4 mt-2 justify-center flex gap-1") do
+    header(class: "card justify-center flex gap-1 p-2 md:p-4") do
       logotype
+    end
+  end
+
+  def logotype
+    link_to(home_path, class: "flex gap-2 items-center font-display font-bold italic text-white text-4xl") do
+      span { "Mood" }
+      inline_svg_tag "shuffle_icon.svg", size: "1.25em", class: "text-brand-600"
+      span { "Tracks" }
     end
   end
 end

@@ -20,14 +20,6 @@ class AbstractLayout < ApplicationView
     end
   end
 
-  def logotype
-    link_to(home_path, class: "flex items-center font-display font-bold italic text-white text-3xl") do
-      span(class: "mr-2") { "Mood" }
-      inline_svg_tag "shuffle_icon.svg", size: "1.25em", class: "text-brand-600"
-      span { "Tracks" }
-    end
-  end
-
   def stylesheets
     stylesheet_link_tag "tailwind", "data-turbo-track": "reload"
     stylesheet_link_tag "application", "data-turbo-track": "reload"

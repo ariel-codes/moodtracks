@@ -1,62 +1,51 @@
 # frozen_string_literal: true
 
-class AuthenticatedLayout < ApplicationView
-  include Phlex::Rails::Layout
-
+class AuthenticatedLayout < AbstractLayout
   def template(&content)
     doctype
-
     html(lang: "en") do
-      head do
-        title { "MoodTracks" }
-        meta(name: "description", content: "track your mood through the magic of music")
-
-        meta(name: "viewport", content: "width=device-width,initial-scale=1")
-        csrf_meta_tags
-        csp_meta_tag
-
-        stylesheet_link_tag "tailwind", "data-turbo-track": "reload"
-        stylesheet_link_tag "application", "data-turbo-track": "reload"
-        javascript_importmap_tags
-
-        link(rel: "preconnect", href: "https://fonts.googleapis.com")
-        link(rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true)
-        link(rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Rubik")
-
-        link(rel: "icon", href: "/favicon.ico", sizes: "any")
-        link(rel: "icon", href: "/favicon.svg", type: "image/svg+xml")
-        link(rel: "apple-touch-icon", href: "/apple-touch-icon.png")
-
-        link(rel: "manifest", href: "/site.webmanifest")
-        meta(name: "theme-color", content: "#41bb2c")
-      end
-      body(class: "flex flex-col h-screen w-screen bg-brand-50 items-center") do
-        header(class: "px-4 py-2 bg-brand-600 self-stretch flex justify-center") do
-          div(class: "container flex justify-between") do
-            link_to(home_path, class: "flex gap-1 items-center font-bold uppercase text-white text-lg") do
-              span { "Mood" }
-              image_tag "shuffle_icon.svg", size: 20
-              span { "Tracks" }
-            end
-
-            div(class: "flex gap-2 items-center") do
-              link_to "" do
-                image_tag current_user.profile_picture, class: "h-8 rounded-full"
-              end
-              button_to logout_path, method: :delete, data: {turbo_confirm: "Do you really wish to log-out?"} do
-                inline_svg_tag "ui/logout.svg", class: "h-8 stroke-2"
-              end
-            end
-          end
+      headers
+      body(class: "flex h-screen w-screen bg-neutral-950 px-2 md:pt-1") do
+        # TODO: make this a component, and react to the user's mood
+        # eg. if the user is selects energetic music, gaussian deviation is higher
+        div data_controller: "ridgeline-plot",
+          class: "absolute top-0 left-0 w-full h-full bg-black/75 -z-5 bg-clip-padding backdrop-filter backdrop-blur-[4px]"
+        div(class: "mx-auto max-w-3xl flex-grow flex flex-col-reverse md:flex-col") do
+          action_bar
+          main(class: "flex-grow flex flex-col", &content)
         end
-        main(class: "flex-grow container px-4", &content)
       end
     end
   end
 
   private
 
+  def action_bar
+    header(class: "card absolute inset-x-0 bottom-0 z-index-50 mx-2 mb-2 py-3 self-stretch flex justify-evenly text-brand-100") do
+      button(class: "button py-1 px-2 flex gap-2 items-center bg-brand-600 text-white") do
+        span(class: "inline text-xl small-caps font-black") { "I feel like" }
+        inline_svg_tag("shuffle_icon.svg", class: "w-9 h-9")
+      end
+      nav class: "contents text-lg" do
+        nav_link(nav_icon("home"), home_path)
+        nav_link(nav_icon("graphs"), "/graphs")
+        nav_link(nav_icon("profile"), profile_path)
+      end
+    end
+  end
+
   def current_user
     helpers.current_user
+  end
+
+  def nav_link(label, path)
+    classes = "button w-11 h-11 flex justify-center items-center"
+    link_to_unless_current label, path, class: classes do
+      button(class: classes, disabled: true) { label }
+    end
+  end
+
+  def nav_icon(icon)
+    raw_inline_svg_tag "ui/#{icon}.svg", class: "w-8"
   end
 end

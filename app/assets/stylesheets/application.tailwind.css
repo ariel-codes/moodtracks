@@ -1,3 +1,5 @@
+@import "./components/button.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +16,7 @@
 
 @layer components {
     .card {
-        @apply p-4 md:p-6 shadow-sm text-white rounded glassy;
+        @apply shadow-sm text-white rounded glassy;
     }
 }
 

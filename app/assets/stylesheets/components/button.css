@@ -1,0 +1,21 @@
+@layer components {
+    .button {
+        @apply text-center rounded-md bg-brand-700;
+    }
+
+    .button:not(:disabled) {
+        @apply cursor-pointer border-t border-t-brand-500 border-x border-brand-600 shadow;
+    }
+
+    .button:disabled {
+        @apply cursor-default bg-brand-800;
+    }
+
+    .button:not(:disabled):hover {
+        @apply text-white bg-brand-600 border-t-brand-400 border-brand-500 shadow-md scale-105;
+    }
+
+    .button:not(:disabled):active {
+        @apply text-white bg-brand-800 border-brand-700 shadow-lg scale-100;
+    }
+}
