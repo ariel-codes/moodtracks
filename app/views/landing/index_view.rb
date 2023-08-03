@@ -4,10 +4,10 @@ class Landing::IndexView < ApplicationView
   def template
     div(class: "mt-8 flex flex-col gap-6") do
       div(class: "card flex flex-col gap-4 p-3 md:p-6") do
-        h1(class: "font-bold text-2xl") do
+        h1(class: "font-bold text-3xl tracking-tight") do
           "Track your mood through the power of music!"
         end
-        p(class: "text-xl") do
+        p(class: "text-xl tracking-tight font-light") do
           <<~TEXT
             Now you can express your feelings using your favorite songs:
             search for your current earworm and MoodTracks will calculate its mood for you.

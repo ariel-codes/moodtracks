@@ -6,6 +6,7 @@ class ApplicationComponent < Phlex::HTML
   include Phlex::Rails::Helpers::LinkToUnlessCurrent
   include Phlex::Rails::Helpers::ButtonTo
   include Phlex::Rails::Helpers::ImageTag
+  include Phlex::Rails::Helpers::TimeAgoInWords
   include InlineSvgTagHelper
 
   if Rails.env.development?

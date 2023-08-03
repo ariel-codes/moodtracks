@@ -17,7 +17,7 @@ class PublicLayout < AbstractLayout
   private
 
   def app_header
-    header(class: "card justify-center flex gap-1 p-2 md:p-4") do
+    header(class: "card justify-center flex gap-1 p-2 md:p-4 mt-2") do
       logotype
     end
   end

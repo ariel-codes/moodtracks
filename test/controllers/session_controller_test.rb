@@ -22,7 +22,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:spotify]
 
     assert_difference "User.count", 1 do
-      get auth_callback_url
+      get auth_spotify_callback_url
     end
     assert_equal User.last.id, session[:user_id]
   end
@@ -49,7 +49,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:spotify]
 
     assert_no_difference "User.count" do
-      get auth_callback_url
+      get auth_spotify_callback_url
     end
     assert_equal "Test User", user.reload.name
   end
