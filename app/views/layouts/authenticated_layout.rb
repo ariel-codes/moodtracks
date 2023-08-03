@@ -22,7 +22,7 @@ class AuthenticatedLayout < AbstractLayout
 
   def action_bar
     header(class: "card absolute inset-x-0 bottom-0 z-index-50 mx-2 mb-2 py-3 self-stretch flex justify-evenly text-brand-100") do
-      button(class: "button py-1 px-2 flex gap-2 items-center bg-brand-600 text-white") do
+      button(class: "button-primary py-1 px-3 flex gap-2 items-center") do
         span(class: "inline text-xl small-caps font-black") { "I feel like" }
         inline_svg_tag("shuffle_icon.svg", class: "w-9 h-9")
       end
